@@ -43,6 +43,7 @@ singleton_implementation(CalendarsManager);
                       location:(NSString *)location
                      startDate:(NSDate *)startDate
                        endDate:(NSDate *)endDate
+                           url:(NSString *)url
                   alarmOffsets:(NSArray <NSNumber *>*)alarmOffsets
                 complateHandle:(calendarsBlock)complate{
 //    NSError *checkResult = [self checkAuthorizationStatus];
@@ -77,6 +78,7 @@ singleton_implementation(CalendarsManager);
                     event.allDay = NO;
                     event.startDate = startDate;
                     event.endDate = endDate;
+                    event.URL = [NSURL URLWithString:url];
                     
                     if (alarmOffsets.count != 0) {
                         for (NSNumber *timeNumb in alarmOffsets) {
@@ -168,6 +170,7 @@ singleton_implementation(CalendarsManager);
                         location:(NSString *)location
                        startDate:(NSDate *)startDate
                          endDate:(NSDate *)endDate
+                             url:(NSString *)url
                     alarmOffsets:(NSArray <NSNumber *>*)alarmOffsets
                   complateHandle:(calendarsBlock)complate{
     
@@ -177,6 +180,10 @@ singleton_implementation(CalendarsManager);
         event.location  = location.length  ? location : event.location;
         event.startDate = startDate != nil ? startDate : event.startDate;
         event.endDate   = endDate != nil   ? endDate : event.endDate;
+        NSString *urlStr = [NSString stringWithFormat:@"%@", event.URL];
+        if (url.length != 0) {
+            urlStr = url;
+        }
         
         NSArray *alarms = alarmOffsets;
         if (alarms.count == 0 || alarms == nil) {
@@ -188,6 +195,7 @@ singleton_implementation(CalendarsManager);
                                 location:event.location
                                startDate:event.startDate
                                  endDate:event.endDate
+                                     url:urlStr
                             alarmOffsets:alarms
                           complateHandle:^(NSError * _Nonnull error, NSString * _Nonnull identifier) {
                                 complate(error, identifier);

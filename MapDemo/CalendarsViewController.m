@@ -36,6 +36,7 @@
                                                    location:@"汇智大厦"
                                                   startDate:start
                                                     endDate:end
+                                                        url:@"https://www.baidu.com"
                                                alarmOffsets:@[@(3600), @(7200)]
                                              complateHandle:^(NSError * _Nonnull error, NSString * _Nonnull identifier) {
                                                  __strong typeof(weakSelf) self = weakSelf;
@@ -70,6 +71,7 @@
                                                      location:@""
                                                     startDate:nil
                                                       endDate:nil
+                                                          url:@""
                                                  alarmOffsets:@[]
                                                complateHandle:^(NSError * _Nonnull error, NSString * _Nonnull identifier) {
         if (!error) {

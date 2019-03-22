@@ -42,6 +42,7 @@ singleton_shareManager;
                       location:(NSString *)location
                      startDate:(NSDate *)startDate
                        endDate:(NSDate *)endDate
+                           url:(NSString *)url
                   alarmOffsets:(NSArray <NSNumber *>*)alarmOffsets
                 complateHandle:(calendarsBlock)complate;
 
@@ -98,6 +99,7 @@ singleton_shareManager;
                         location:(NSString *)location
                        startDate:(NSDate *)startDate
                          endDate:(NSDate *)endDate
+                             url:(NSString *)url
                     alarmOffsets:(NSArray <NSNumber *>*)alarmOffsets
                   complateHandle:(calendarsBlock)complate;
 
